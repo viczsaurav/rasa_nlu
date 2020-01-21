@@ -1,103 +1,113 @@
+:desc: Learn more about open-source natural language processing library Rasa NLU
+       for intent classification and entity extraction in on premise chatbots.
 
-Language Understanding with rasa NLU
-====================================
+.. _index:
+
+Build contextual chatbots and AI assistants with Rasa
+=====================================================
 
 .. note::
-    This is the documentation for version |release| of rasa NLU. Make sure you select
-    the appropriate version of the documentation for your local installation!
+    These docs are for Rasa 1.0 and later. Docs for older versions are at http://legacy-docs.rasa.com.
+
+    This is the documentation for version |release| of Rasa. Please make sure you are reading the documentation
+    that matches the version you have installed.
 
 
-rasa NLU is an open source tool for intent classification and entity extraction. For example, taking a sentence like 
-
-.. code-block:: console
-
-    "I am looking for a Mexican restaurant in the center of town"
-
-and returning structured data like
-
-.. code-block:: json
-
-    { 
-      "intent": "search_restaurant",
-      "entities": {
-        "cuisine" : "Mexican",
-        "location" : "center"
-      }
-    }
-
-
-The intended audience is mainly people developing bots. 
-You can use rasa as a drop-in replacement for `wit <https://wit.ai>`_ , `LUIS <https://www.luis.ai>`_ , or `Dialogflow <https://dialogflow.com>`_, the only change in your code is to send requests to ``localhost`` instead (see :ref:`section_migration` for details).
-
-Why might you use rasa instead of one of those services?
-
-- you don't have to hand over your data to FB/MSFT/GOOG
-- you don't have to make a ``https`` call every time.
-- you can tune models to work well on your particular use case.
-
-These points are laid out in more detail in a `blog post <https://medium.com/lastmile-conversations/do-it-yourself-nlp-for-bot-developers-2e2da2817f3d>`_ .
-
-
-The quickest quickstart in the west
------------------------------------
-
-
-.. code-block:: console
-
-    $ python setup.py install
-    $ python -m rasa_nlu.server -e wit &
-    $ curl 'http://localhost:5000/parse?q=hello'
-    [{"_text": "hello", "confidence": 1.0, "entities": {}, "intent": "greet"}]
-
-
-There you go! you just parsed some text. Next step, do the :ref:`section_tutorial`.
-
-.. note:: This demo uses a very limited ML model. To apply rasa NLU to your use case, you need to train your own model! Follow the tutorial to get to know how to apply rasa_nlu to your data.
-
-About 
------
-
-You can think of rasa NLU as a set of high level APIs for building your own language parser using existing NLP and ML libraries.
-The setup process is designed to be as simple as possible. If you're currently using wit, LUIS, or Dialogflow, you just:
-
-1. download your app data from wit or LUIS and feed it into rasa NLU
-2. run rasa NLU on your machine and switch the URL of your wit/LUIS/Dialogflow api calls to ``localhost:5000/parse``.
-
-rasa NLU is written in Python, but it you can use it from any language through :ref:`section_http`.
-If your project *is* written in Python you can simply import the relevant classes.
-
-rasa is a set of tools for building more advanced bots, developed by `Rasa <https://rasa.ai>`_ . This is the natural language understanding module, and the first component to be open sourced.
+Rasa is an open source machine learning framework for automated text and voice-based conversations.
+Understand messages, hold conversations, and connect to messaging channels and APIs.
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started
+   :caption: User Guide
+   :hidden:
 
-   installation
-   tutorial
-
-.. toctree::
-   :maxdepth: 1
-   :caption: User Documentation
-
-   config
-   migrating
-   dataformat
-   http
-   python
-   entities
-   closeloop
-   persist
-   languages
-   pipeline
-   faq
-   migrations
-   license
+   user-guide/installation
+   user-guide/rasa-tutorial
+   user-guide/command-line-interface
+   user-guide/architecture
+   user-guide/messaging-and-voice-channels
+   user-guide/evaluating-models
+   user-guide/validate-files
+   user-guide/running-the-server
+   user-guide/running-rasa-with-docker
+   user-guide/cloud-storage
 
 .. toctree::
    :maxdepth: 1
-   :caption: Developer Documentation
+   :caption: NLU
+   :hidden:
 
-   Roadmap<https://github.com/RasaHQ/rasa_nlu/projects/2>
-   contribute
+   About <nlu/about>
+   nlu/using-nlu-only
+   nlu/training-data-format
+   nlu/choosing-a-pipeline
+   nlu/language-support
+   nlu/entity-extraction
+   nlu/components
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Core
+   :hidden:
+
+   About <core/about>
+   core/stories
+   core/domains
+   core/responses
+   core/actions
+   core/policies
+   core/slots
+   core/forms
+   core/retrieval-actions
+   core/interactive-learning
+   core/fallback-actions
+   core/knowledge-bases
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Conversation Design
+   :hidden:
+
+   dialogue-elements/dialogue-elements
+   dialogue-elements/small-talk
+   dialogue-elements/completing-tasks
+   dialogue-elements/guiding-users
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: API Reference
+
+   api/action-server
+   api/http-api
+   api/jupyter-notebooks
+   api/agent
+   api/custom-nlu-components
+   api/rasa-sdk
+   api/events
+   api/tracker
+   api/tracker-stores
+   api/event-brokers
+   api/lock-stores
+   api/training-data-importers
+   api/core-featurization
+   migration-guide
    changelog
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Migrate from (beta)
+
+   Dialogflow <migrate-from/google-dialogflow-to-rasa>
+   Wit.ai <migrate-from/facebook-wit-ai-to-rasa>
+   LUIS <migrate-from/microsoft-luis-to-rasa>
+   IBM Watson <migrate-from/ibm-watson-to-rasa>
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Reference
+
+   glossary

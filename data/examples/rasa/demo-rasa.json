@@ -4,6 +4,10 @@
       {
         "name": "zipcode",
         "pattern": "[0-9]{5}"
+      },
+      {
+        "name": "greet",
+        "pattern": "hey[^\\s]*"
       }
     ],
     "entity_synonyms": [
@@ -18,12 +22,12 @@
     ],
     "common_examples": [
       {
-        "text": "hey", 
+        "text": "hey",
         "intent": "greet", 
         "entities": []
       }, 
       {
-        "text": "howdy", 
+        "text": "howdy",
         "intent": "greet", 
         "entities": []
       }, 
@@ -113,6 +117,26 @@
         "entities": []
       },
       {
+        "text": "What's your name?",
+        "intent": "chitchat/ask_name",
+        "entitites": []
+      },
+      {
+        "text": "What can I call you?",
+        "intent": "chitchat/ask_name",
+        "entitites": []
+      },
+      {
+        "text": "How's the weather?",
+        "intent": "chitchat/ask_weather",
+        "entitites": []
+      },
+      {
+        "text": "Is it too hot outside?",
+        "intent": "chitchat/ask_weather",
+        "entitites": []
+      },
+      {
         "text": "i'm looking for a place to eat",
         "intent": "restaurant_search",
         "entities": []
@@ -152,7 +176,7 @@
         ]
       },
       {
-        "text": "show me chines restaurants",
+        "text": "show me chines restaurants in the north",
         "intent": "restaurant_search",
         "entities": [
           {
@@ -160,6 +184,12 @@
             "end": 14,
             "value": "chinese",
             "entity": "cuisine"
+          },
+          {
+            "start": 34,
+            "end": 39,
+            "value": "north",
+            "entity": "location"
           }
         ]
       },

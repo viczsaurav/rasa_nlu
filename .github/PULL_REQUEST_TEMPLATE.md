@@ -2,7 +2,7 @@
 - ...
 
 **Status (please check what you already did)**:
-- [ ] made PR ready for code review
 - [ ] added some tests for the functionality
 - [ ] updated the documentation
-- [ ] updated the changelog
+- [ ] updated the changelog (please check [changelog](https://github.com/RasaHQ/rasa/tree/master/changelog) for instructions)
+- [ ] reformat files using `black` (please check [Readme](https://github.com/RasaHQ/rasa#code-style) for instructions)
